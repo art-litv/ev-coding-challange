@@ -1,9 +1,17 @@
 import PropertyCard, { type PropertyCardProps } from "./PropertyCard";
 
-const ApartmentCard: React.FC<PropertyCardProps> = ({ data, ...rest }) => {
+const ApartmentCard: React.FC<Omit<PropertyCardProps, "displayedData">> = ({
+  property,
+  ...rest
+}) => {
   return (
     <PropertyCard
-      data={{ rooms: data.rooms, floor: data.floor, price: data.price }}
+      displayedData={{
+        rooms: property.rooms,
+        floor: property.floor,
+        price: property.price,
+      }}
+      property={property}
       {...rest}
     />
   );

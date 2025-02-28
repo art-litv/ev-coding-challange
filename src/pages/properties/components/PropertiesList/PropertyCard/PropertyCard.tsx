@@ -8,33 +8,44 @@ import CloseIcon from "@/assets/icons/close.svg?react";
 import Styled from "./PropertyCard.styled";
 
 export type PropertyCardProps = {
-  onDelete: () => void;
+  onDelete: (property: Property) => void;
   children?: React.ReactNode;
-  data: Partial<Property>;
-} & CardProps;
+  displayedData: Partial<Property>;
+  property: Property;
+} & Omit<CardProps, "property">;
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
   title,
   onDelete,
   image,
-  data,
+  displayedData,
+  property,
 }) => {
   return (
     <Card
       title={title}
-      actions={<IconButton icon={<CloseIcon />} onClick={onDelete} />}
+      actions={
+        <IconButton icon={<CloseIcon />} onClick={() => onDelete(property)} />
+      }
       image={image}
     >
       <Styled.PropertyData>
-        {data.rooms && <DataRow label="Rooms" value={data.rooms} />}
-        {data.plotSize && <DataRow label="Plot Size" value={data.plotSize} />}
+        {displayedData.rooms && (
+          <DataRow label="Rooms" value={displayedData.rooms} />
+        )}
+        {displayedData.plotSize && (
+          <DataRow label="Plot Size" value={displayedData.plotSize} />
+        )}
+        {displayedData.floor && (
+          <DataRow label="Floor" value={displayedData.floor} />
+        )}
         <Styled.Divider />
-        {data.price && (
+        {displayedData.price && (
           <DataRow
             label="Price"
             value={
               <>
-                <Styled.Price>{data.price}</Styled.Price> EUR
+                <Styled.Price>{displayedData.price}</Styled.Price> EUR
               </>
             }
           />

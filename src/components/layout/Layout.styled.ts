@@ -19,7 +19,11 @@ export default {
     box-shadow: ${({ theme }) => theme.shadows.sm};
     background: ${({ theme }) => theme.colors.background.secondary};
     z-index: 1;
-    width: 72px;
+    width: 80px;
+
+    ${({ theme }) => theme.media.md} {
+      display: none;
+    }
   `,
   Content: styled.main`
     flex: 1;
