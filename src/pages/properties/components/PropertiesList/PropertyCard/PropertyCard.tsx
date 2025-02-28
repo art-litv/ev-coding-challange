@@ -1,11 +1,11 @@
-import { Card } from "@/components/ui/Card";
+import { Card, type CardProps } from "@/components/ui/Card";
 import { IconButton } from "@/components/ui/IconButton";
 
+import CloseIcon from "@/assets/icons/close.svg?react";
+
 type PropertyCardProps = {
-  title: React.ReactNode;
   onDelete: () => void;
-  image?: string;
-};
+} & CardProps;
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
   title,

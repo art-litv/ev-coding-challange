@@ -1,6 +1,6 @@
 import Styled from "./Card.styled";
 
-type CardProps = {
+export type CardProps = {
   title: React.ReactNode;
   image?: string;
   actions?: React.ReactNode;

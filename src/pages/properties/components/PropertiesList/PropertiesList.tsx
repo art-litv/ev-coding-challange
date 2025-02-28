@@ -1,7 +1,9 @@
+import { PropertyCard } from "./PropertyCard";
+
 const PropertiesList = () => {
   return (
     <div>
-      <h1>PropertiesList</h1>
+      <PropertyCard title="dgd" onDelete={() => {}} />
     </div>
   );
 };

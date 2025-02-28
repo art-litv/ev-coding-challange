@@ -4,14 +4,18 @@ export default {
   Card: styled.div`
     display: flex;
     flex-direction: column;
+    width: 324px;
+    border: 1px solid ${({ theme }) => theme.colors.borders.primary};
+    background: ${({ theme }) => theme.colors.background.secondary};
+    padding: ${({ theme }) => theme.utils.spacing(4, 6, 4, 4)};
   `,
   Header: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
   `,
-  Title: styled.h2`
-    margin: 0;
+  Title: styled.span`
+    font-size: ${({ theme }) => theme.size.text.sm};
   `,
   Actions: styled.div`
     display: flex;
@@ -28,6 +32,6 @@ export default {
   `,
   Content: styled.div`
     display: flex;
-    gap: ${({ theme }) => theme.spacing.sm};
+    gap: ${({ theme }) => theme.utils.spacing(3)};
   `,
 } as const;

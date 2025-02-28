@@ -15,6 +15,10 @@ const theme = {
     borders: {
       primary: "#F0F0F0",
     },
+    background: {
+      primary: "#FAFAFA",
+      secondary: "#FFFFFF",
+    },
   },
   size: {
     text: {

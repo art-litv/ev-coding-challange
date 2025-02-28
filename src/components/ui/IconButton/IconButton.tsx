@@ -1,11 +1,11 @@
 import Styled from "./IconButton.styled";
 
-type IconButtonProps = {
-  image?: React.ReactNode;
+export type IconButtonProps = {
+  icon?: React.ReactNode;
 } & React.HTMLAttributes<HTMLButtonElement>;
 
-const IconButton: React.FC<IconButtonProps> = ({ image, ...props }) => {
-  return <Styled.IconButton {...props}>{image}</Styled.IconButton>;
+const IconButton: React.FC<IconButtonProps> = ({ icon, ...props }) => {
+  return <Styled.IconButton {...props}>{icon}</Styled.IconButton>;
 };
 
 export default IconButton;
