@@ -19,6 +19,9 @@ const theme = {
       primary: "#FAFAFA",
       secondary: "#FFFFFF",
     },
+    divider: {
+      primary: "#F0F0F0",
+    },
   },
   size: {
     text: {

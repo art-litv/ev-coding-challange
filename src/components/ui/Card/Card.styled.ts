@@ -32,6 +32,7 @@ export default {
     object-fit: cover;
   `,
   Content: styled.div`
+    flex: 1;
     display: flex;
     gap: ${({ theme }) => theme.utils.spacing(3)};
   `,

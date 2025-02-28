@@ -16,6 +16,7 @@ const PropertiesList = ({ properties }: PropertiesListProps) => {
           title={property.title}
           image="src/assets/images/property.png"
           onDelete={() => {}}
+          data={property}
         />
       ))}
     </Styled.List>

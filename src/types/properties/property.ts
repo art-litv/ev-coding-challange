@@ -13,4 +13,5 @@ export type Property = {
   address: string;
   plotSize: number;
   rooms: number;
+  floor: number;
 };
