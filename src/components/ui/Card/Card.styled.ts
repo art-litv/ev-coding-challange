@@ -4,7 +4,6 @@ export default {
   Card: styled.div`
     display: flex;
     flex-direction: column;
-    width: 324px;
     border: 1px solid ${({ theme }) => theme.colors.borders.primary};
     background: ${({ theme }) => theme.colors.background.secondary};
     padding: ${({ theme }) => theme.utils.spacing(4, 6, 4, 4)};
@@ -13,8 +12,10 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: ${({ theme }) => theme.utils.spacing(4)};
   `,
   Title: styled.span`
+    color: ${({ theme }) => theme.colors.text.secondary};
     font-size: ${({ theme }) => theme.size.text.sm};
   `,
   Actions: styled.div`

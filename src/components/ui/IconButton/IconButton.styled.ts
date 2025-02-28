@@ -4,7 +4,7 @@ export default {
   IconButton: styled.button`
     display: flex;
     gap: ${({ theme }) => theme.utils.spacing(3)};
-    padding: ${({ theme }) => theme.utils.spacing(3)};
+    padding: 0;
     border-radius: 50%;
     border: none;
     cursor: pointer;

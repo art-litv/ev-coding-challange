@@ -20,6 +20,8 @@
       "@/common/*": ["src/common/*"],
       "@/pages/*": ["src/pages/*"],
       "@/assets/*": ["src/assets/*"],
+      "@/api/*": ["src/api/*"],
+      "@/types/*": ["src/types/*"],
       "@/providers": ["src/providers"]
     },
 

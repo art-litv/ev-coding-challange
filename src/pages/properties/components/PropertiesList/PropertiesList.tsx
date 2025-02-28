@@ -1,10 +1,24 @@
 import { PropertyCard } from "./PropertyCard";
+import { Property } from "@/types/properties";
 
-const PropertiesList = () => {
+import Styled from "./PropertiesList.styled";
+
+type PropertiesListProps = {
+  properties: Property[];
+};
+
+const PropertiesList = ({ properties }: PropertiesListProps) => {
   return (
-    <div>
-      <PropertyCard title="dgd" onDelete={() => {}} />
-    </div>
+    <Styled.List>
+      {properties.map((property) => (
+        <PropertyCard
+          key={property.id}
+          title={property.title}
+          image="src/assets/images/property.png"
+          onDelete={() => {}}
+        />
+      ))}
+    </Styled.List>
   );
 };
 
