@@ -14,7 +14,7 @@ export default {
   Button: styled.button<{ $variant: "primary" | "secondary" }>`
     display: flex;
     gap: ${({ theme }) => theme.utils.spacing(3)};
-    padding: ${({ theme }) => theme.utils.spacing(3, 6)};
+    padding: ${({ theme }) => theme.utils.spacing(6, 8)};
     border-radius: 4px;
     border: none;
     cursor: pointer;

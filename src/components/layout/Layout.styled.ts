@@ -15,11 +15,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: ${({ theme }) => theme.utils.spacing(14)};
+    padding: ${({ theme }) => theme.utils.spacing(14, 6)};
     box-shadow: ${({ theme }) => theme.shadows.sm};
     background: ${({ theme }) => theme.colors.background.secondary};
     z-index: 1;
-    width: 80px;
 
     ${({ theme }) => theme.media.md} {
       display: none;

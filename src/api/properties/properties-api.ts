@@ -17,7 +17,6 @@ export type CreatePropertyPayload = {
   address: string;
   price: string;
   title: string;
-  id: string;
 };
 
 export const createProperty = async (

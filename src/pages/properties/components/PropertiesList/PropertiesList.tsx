@@ -7,14 +7,16 @@ import ApartmentCard from "./PropertyCard/ApartmentCard";
 import HouseCard from "./PropertyCard/HouseCard";
 
 import { useDeleteProperty } from "../../queries/properties-list";
+import type { ToolbarFilters } from "../Toolbar/Toolbar";
 
 import Styled from "./PropertiesList.styled";
 
 type PropertiesListProps = {
   properties: Property[];
+  filters: ToolbarFilters;
 };
 
-const PropertiesList = ({ properties }: PropertiesListProps) => {
+const PropertiesList = ({ properties, filters }: PropertiesListProps) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(
     null
@@ -24,9 +26,22 @@ const PropertiesList = ({ properties }: PropertiesListProps) => {
     selectedProperty?.id || ""
   );
 
+  const filteredAndSortedProperties = [...properties]
+    .filter(
+      (property) =>
+        (filters.type === "all" || property.type === filters.type) &&
+        (filters.search === "" ||
+          property.title?.toLowerCase().includes(filters.search.toLowerCase()))
+    )
+    .sort((a, b) => {
+      const priceA = parseFloat(a.price.replace(/[^0-9.-]+/g, ""));
+      const priceB = parseFloat(b.price.replace(/[^0-9.-]+/g, ""));
+      return filters.priceSort === "desc" ? priceB - priceA : priceA - priceB;
+    });
+
   return (
     <Styled.List>
-      {properties.map((property) => {
+      {filteredAndSortedProperties.map((property) => {
         const cardProps: Omit<PropertyCardProps, "displayedData"> = {
           title: property.title,
           image: "src/assets/images/property.png",
@@ -58,6 +73,7 @@ const PropertiesList = ({ properties }: PropertiesListProps) => {
         propertyTitle={selectedProperty?.title as string}
         propertyId={selectedProperty?.id as string}
       />
+      {!filteredAndSortedProperties.length && "No properties found"}
     </Styled.List>
   );
 };

@@ -2,6 +2,7 @@ import Styled from "./Button.styled";
 
 export type ButtonProps = {
   variant?: "primary" | "secondary";
+  type?: "button" | "submit";
 } & React.PropsWithChildren &
   React.HTMLAttributes<HTMLButtonElement>;
 
