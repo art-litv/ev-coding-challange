@@ -71,6 +71,18 @@ export default {
       border-color: ${({ theme }) => theme.colors.primary};
     }
   `,
+  Select: styled.select`
+    width: -webkit-fill-available;
+    padding: 8px 12px;
+    border: 1px solid ${({ theme }) => theme.colors.gray};
+    border-radius: 4px;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+      border-color: ${({ theme }) => theme.colors.primary};
+    }
+  `,
   ButtonContainer: styled.div`
     margin-top: auto;
     margin-bottom: 42px;

@@ -1,6 +1,6 @@
 import instance from "@/common/api/instance";
 
-import { Property } from "@/types/properties";
+import { Property, PropertyType } from "@/types/properties";
 
 export const getProperties = async (): Promise<Property[]> => {
   const { data } = await instance.get("/properties");
@@ -12,6 +12,7 @@ export const deleteProperty = async (id: string): Promise<void> => {
 };
 
 export type CreatePropertyPayload = {
+  type: PropertyType;
   createdAt: string;
   name: string;
   address: string;

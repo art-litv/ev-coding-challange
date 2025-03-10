@@ -3,6 +3,7 @@ import { useState } from "react";
 // @ts-expect-error styles lib
 import "react-modern-drawer/dist/index.css";
 
+import { PropertyType } from "@/types/properties";
 import { Button } from "@/components/ui/Button";
 import { useCreateProperty } from "../../queries/properties-list";
 import type { CreatePropertyPayload } from "@/api/properties";
@@ -28,6 +29,7 @@ export const CreatePropertyDrawer = ({
     name: "",
     address: "",
     price: "",
+    type: PropertyType.APARTMENT,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -43,10 +45,19 @@ export const CreatePropertyDrawer = ({
       name: "",
       address: "",
       price: "",
+      type: PropertyType.APARTMENT,
     });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -102,6 +113,21 @@ export const CreatePropertyDrawer = ({
                 onChange={handleInputChange}
                 required
               />
+            </Styled.InputGroup>
+
+            <Styled.InputGroup>
+              <Styled.Label htmlFor="type">Type</Styled.Label>
+              <Styled.Select
+                id="type"
+                name="type"
+                value={formData.type}
+                onChange={handleSelect}
+                required
+              >
+                <option value="">Select type</option>
+                <option value={PropertyType.APARTMENT}>Apartment</option>
+                <option value={PropertyType.HOUSE}>House</option>
+              </Styled.Select>
             </Styled.InputGroup>
 
             <Styled.InputGroup>
