@@ -133,7 +133,7 @@ export const CreatePropertyDrawer = ({
             <Styled.InputGroup>
               <Styled.Label htmlFor="price">Price</Styled.Label>
               <Styled.Input
-                type="text"
+                type="number"
                 id="price"
                 name="price"
                 value={formData.price}
